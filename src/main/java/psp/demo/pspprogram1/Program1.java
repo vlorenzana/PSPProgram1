@@ -40,6 +40,7 @@ public class Program1 {
     }
     public static List<Double> loadData(File file)
     {
-        return new ArrayList<>();
+        List<Double> data=new ArrayList<>();
+        return data;
     }
 }
