@@ -17,8 +17,31 @@ import psp.demo.pspprogram1.Program1;
 
 public class TestProgram1 {
 
-    
-    
+    static final List<Double> test1=new ArrayList<>();
+    static
+    {
+        test1.add(160d);
+        test1.add(591d);
+        test1.add(114d);
+        test1.add(229d);
+        test1.add(230d);
+        test1.add(270d);
+        test1.add(128d);
+        test1.add(1657d);
+        test1.add(624d);
+        test1.add(1503d);
+        
+       /* 15.0
+ 69.9
+ 6.5
+ 22.4
+ 28.4
+ 65.9
+ 19.4
+ 198.7
+ 38.8
+ 138.2*/
+    }
     
     @Test
     public void testAVG0()
@@ -45,5 +68,13 @@ public class TestProgram1 {
        
         double res=Program1.avg(values);
         org.junit.Assert.assertEquals(res, 0d,0.0d);
+    }
+    @Test
+    public void testAVGList()
+    {
+        
+       
+        double res=Program1.avg(test1);
+        org.junit.Assert.assertEquals(res, 550.6d,0.0d);
     }
 }
