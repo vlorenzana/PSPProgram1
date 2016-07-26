@@ -15,20 +15,25 @@ public class Program1 {
 
     public static double avg(List<Double> values) {
         double sum = 0;
-        for (Double value : values) {
-            sum += value;
+        if (!values.isEmpty()) {
+            for (Double value : values) {
+                sum += value;
+            }
+            return sum / values.size();
+        } else {
+            return 0;
         }
-        return sum / values.size();
     }
-    
-    public static double desv(List<Double> values)
-    {
-        double avg=avg(values);
-        double suma=0;
-        for(Double value : values)
-        {
-            suma+=Math.pow(value-avg,2);
+
+    public static double desv(List<Double> values) {
+        if (values.isEmpty()) {
+            return 0;
         }
-        return suma/values.size();
+        double avg = avg(values);
+        double suma = 0;
+        for (Double value : values) {
+            suma += Math.pow(value - avg, 2);
+        }
+        return suma / values.size();
     }
 }
