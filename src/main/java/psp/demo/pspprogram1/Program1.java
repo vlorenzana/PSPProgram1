@@ -5,6 +5,8 @@
  */
 package psp.demo.pspprogram1;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,5 +37,9 @@ public class Program1 {
             suma += Math.pow(value - avg, 2);
         }
         return suma / values.size();
+    }
+    public static List<Double> loadData(File file)
+    {
+        return new ArrayList<>();
     }
 }
