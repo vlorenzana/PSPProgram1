@@ -29,7 +29,7 @@ public class TestProgram1 {
         double res=Program1.avg(values);
         org.junit.Assert.assertEquals(res, 5d,0.0d);
     }
-     @Test
+    @Test
     public void testAVG1()
     {
         List<Double> values=new ArrayList<>();
@@ -38,5 +38,12 @@ public class TestProgram1 {
         double res=Program1.avg(values);
         org.junit.Assert.assertEquals(res, 2d,0.0d);
     }
-    
+    @Test
+    public void testAVG2()
+    {
+        List<Double> values=new ArrayList<>();
+       
+        double res=Program1.avg(values);
+        org.junit.Assert.assertEquals(res, 2d,0.0d);
+    }
 }
