@@ -20,4 +20,15 @@ public class Program1 {
         }
         return sum / values.size();
     }
+    
+    public static double desv(List<Double> values)
+    {
+        double avg=avg(values);
+        double suma=0;
+        for(Double value : values)
+        {
+            suma+=Math.pow(value-avg,2);
+        }
+        return suma/values.size();
+    }
 }
