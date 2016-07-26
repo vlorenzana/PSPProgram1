@@ -44,6 +44,6 @@ public class TestProgram1 {
         List<Double> values=new ArrayList<>();
        
         double res=Program1.avg(values);
-        org.junit.Assert.assertEquals(res, 2d,0.0d);
+        org.junit.Assert.assertEquals(res, 0d,0.0d);
     }
 }
