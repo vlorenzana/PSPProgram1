@@ -13,8 +13,9 @@ import java.util.List;
  *
  * @author victor.lorenzana
  */
-public class Program1 {
+public abstract class Program1 {
 
+    
     public static double avg(List<Double> values) {
         double sum = 0;
         if (!values.isEmpty()) {
