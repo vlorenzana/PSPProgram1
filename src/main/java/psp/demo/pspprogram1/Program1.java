@@ -12,12 +12,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 /**
  *
  * @author victor.lorenzana
  */
 public interface Program1 {
+
+    static Logger log = Logger.getLogger(Program1.class);
 
     public static double avg(List<Double> values) {
         double sum = 0;
@@ -46,26 +49,19 @@ public interface Program1 {
     public static List<Double> loadData(File file) {
         List<Double> list = new ArrayList<>();
         if (file.exists()) {
-            try {
-                BufferedReader in = new BufferedReader(new FileReader(file));
-                try {
-                    String line = in.readLine();
-                    line=line.isEmpty() ? null : line;
-                    while (line != null) {
-                        double data = Double.parseDouble(line);
-                        list.add(data);
-                        try {
-                            line = in.readLine();
-                        } catch (IOException ioe) {
-                            ioe.printStackTrace();
-                        }
-                    }
-                } catch (IOException ioe) {
-                    ioe.printStackTrace();
+            try (BufferedReader in = new BufferedReader(new FileReader(file))) {
+                String line = in.readLine();
+                line = line.isEmpty() ? null : line;
+                while (line != null) {
+                    double data = Double.parseDouble(line);
+                    list.add(data);
+                    line = in.readLine();
+
                 }
-            } catch (FileNotFoundException fnfe) {
-                fnfe.printStackTrace();
+            } catch (IOException ioe) {
+                log.error("Error en lectura de archivo", ioe);
             }
+
         }
         return list;
     }
