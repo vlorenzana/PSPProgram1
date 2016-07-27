@@ -7,7 +7,6 @@ package psp.demo.pspprogram1;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import org.apache.log4j.Logger;
  */
 public interface Program1 {
 
-    static Logger log = Logger.getLogger(Program1.class);
+    static Logger LOG = Logger.getLogger(Program1.class);
 
     public static double avg(List<Double> values) {
         double sum = 0;
@@ -59,7 +58,7 @@ public interface Program1 {
 
                 }
             } catch (IOException ioe) {
-                log.error("Error en lectura de archivo", ioe);
+                LOG.error("Error en lectura de archivo", ioe);
             }
 
         }
