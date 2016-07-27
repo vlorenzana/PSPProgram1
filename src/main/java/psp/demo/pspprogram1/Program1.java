@@ -36,7 +36,7 @@ public class Program1 {
         for (Double value : values) {
             suma += Math.pow(value - avg, 2);
         }
-        return suma / values.size();
+        return Math.sqrt(suma / (values.size()-1));
     }
     public static List<Double> loadData(File file)
     {

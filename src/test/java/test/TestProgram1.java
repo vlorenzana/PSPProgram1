@@ -77,4 +77,11 @@ public class TestProgram1 {
         double res=Program1.avg(test1);
         org.junit.Assert.assertEquals(res, 550.6d,0.0d);
     }
+    @Test
+    public void testDesvList()
+    {     
+       
+        double res=Program1.desv(test1);
+        org.junit.Assert.assertEquals(res, 572.03d,0.01d);
+    }
 }
