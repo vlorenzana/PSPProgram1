@@ -101,4 +101,12 @@ public class TestProgram1 {
         List<Double> list=Program1.loadData(file);
         assertEquals(10,list.size());
     }
+    @Test
+    public void testLoadDataNotFound()
+    {     
+        String path="c:/temp/temp.txt";        
+        File file=new File(path);        
+        List<Double> list=Program1.loadData(file);
+        assertEquals(0,list.size());
+    }
 }
