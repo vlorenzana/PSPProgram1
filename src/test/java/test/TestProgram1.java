@@ -100,6 +100,6 @@ public class TestProgram1 {
         File file=new File(path);
         
         List<Double> list=Program1.loadData(file);
-        assertEquals(list.size(), 10l);
+        assertEquals(10,list.size());
     }
 }
