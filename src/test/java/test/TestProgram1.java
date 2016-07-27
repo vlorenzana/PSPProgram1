@@ -96,10 +96,8 @@ public class TestProgram1 {
     @Test
     public void testLoadData()
     {     
-        String path=Program1.class.getResource("/lista.txt").getFile();
-        System.out.println("path "+path);        
-        File file=new File(path);
-        
+        String path=Program1.class.getResource("/lista.txt").getFile().replace("%20", " ");        
+        File file=new File(path);        
         List<Double> list=Program1.loadData(file);
         assertEquals(10,list.size());
     }
