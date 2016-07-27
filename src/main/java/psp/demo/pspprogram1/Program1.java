@@ -5,7 +5,14 @@
  */
 package psp.demo.pspprogram1;
 
+import java.io.BufferedReader;
+import java.io.DataInput;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +20,8 @@ import java.util.List;
  *
  * @author victor.lorenzana
  */
-public abstract class Program1 {
+public interface Program1 {
 
-    
     public static double avg(List<Double> values) {
         double sum = 0;
         if (!values.isEmpty()) {
@@ -37,11 +43,32 @@ public abstract class Program1 {
         for (Double value : values) {
             suma += Math.pow(value - avg, 2);
         }
-        return Math.sqrt(suma / (values.size()-1));
+        return Math.sqrt(suma / (values.size() - 1));
     }
-    public static List<Double> loadData(File file)
-    {
-        List<Double> data=new ArrayList<>();
-        return data;
+
+    public static List<Double> loadData(File file) {
+        List<Double> list = new ArrayList<>();
+        if (file.exists()) {
+            try {
+                BufferedReader in = new BufferedReader(new FileReader(file));
+                try {
+                    String line = in.readLine();
+                    while (line != null) {
+                        double data = Double.parseDouble(line);
+                        list.add(data);
+                        try {
+                            line = in.readLine();
+                        } catch (IOException ioe) {
+                            ioe.printStackTrace();
+                        }
+                    }
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
+                }
+            } catch (FileNotFoundException fnfe) {
+                fnfe.printStackTrace();
+            }
+        }
+        return list;
     }
 }
