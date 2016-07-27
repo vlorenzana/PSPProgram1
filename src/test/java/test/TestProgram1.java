@@ -84,4 +84,11 @@ public class TestProgram1 {
         double res=Program1.desv(test1);
         org.junit.Assert.assertEquals(res, 572.03d,0.01d);
     }
+    @Test
+    public void testDesvEmptyList()
+    {     
+       
+        double res=Program1.desv(new ArrayList<>());
+        org.junit.Assert.assertEquals(res, 572.03d,0.01d);
+    }
 }
