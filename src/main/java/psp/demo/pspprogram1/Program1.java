@@ -6,10 +6,7 @@
 package psp.demo.pspprogram1;
 
 import java.io.BufferedReader;
-import java.io.DataInput;
-import java.io.DataInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -53,6 +50,7 @@ public interface Program1 {
                 BufferedReader in = new BufferedReader(new FileReader(file));
                 try {
                     String line = in.readLine();
+                    line=line.isEmpty() ? null : line;
                     while (line != null) {
                         double data = Double.parseDouble(line);
                         list.add(data);

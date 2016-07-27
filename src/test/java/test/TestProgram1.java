@@ -5,8 +5,10 @@
  */
 package test;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import psp.demo.pspprogram1.Program1;
 
@@ -90,5 +92,14 @@ public class TestProgram1 {
        
         double res=Program1.desv(new ArrayList<>());
         org.junit.Assert.assertEquals(res, 0d,0.01d);
+    }
+    @Test
+    public void testLoadData()
+    {     
+        String path=Program1.class.getResource("/lista.txt").getFile();
+        File file=new File(path);
+        
+        List<Double> list=Program1.loadData(file);
+        assertEquals(list.size(), 10l);
     }
 }
